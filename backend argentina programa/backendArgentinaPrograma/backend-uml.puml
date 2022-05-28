@@ -1,0 +1,448 @@
+@startuml
+annotation com.MiguelAngelSotelo.backendArgentinaPrograma.controller.CrossOrigin
+annotation com.MiguelAngelSotelo.backendArgentinaPrograma.controller.DeleteMapping
+annotation com.MiguelAngelSotelo.backendArgentinaPrograma.controller.GetMapping
+annotation com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PathVariable
+annotation com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PostMapping
+annotation com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PutMapping
+annotation com.MiguelAngelSotelo.backendArgentinaPrograma.controller.RequestBody
+annotation com.MiguelAngelSotelo.backendArgentinaPrograma.controller.RequestMapping
+annotation com.MiguelAngelSotelo.backendArgentinaPrograma.controller.RestController
+annotation com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Basic
+annotation com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Entity
+annotation com.MiguelAngelSotelo.backendArgentinaPrograma.entity.GeneratedValue
+annotation com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Id
+annotation com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.Column
+annotation com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.Entity
+annotation com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.Enumerated
+annotation com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.GeneratedValue
+annotation com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.Id
+annotation com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.JoinColumn
+annotation com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.JoinTable
+annotation com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.ManyToMany
+annotation com.sun.istack.NotNull
+annotation java.lang.Override
+annotation javax.persistence.Entity
+annotation javax.persistence.GeneratedValue
+annotation javax.persistence.Id
+annotation javax.transaction.Transactional
+annotation javax.validation.Valid
+annotation javax.validation.constraints.Email
+annotation javax.validation.constraints.NotBlank
+annotation lombok.Getter
+annotation lombok.Setter
+annotation org.springframework.beans.factory.annotation.Autowired
+annotation org.springframework.beans.factory.annotation.Value
+annotation org.springframework.boot.autoconfigure.SpringBootApplication
+annotation org.springframework.context.annotation.Bean
+annotation org.springframework.context.annotation.Configuration
+annotation org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity
+annotation org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
+annotation org.springframework.stereotype.Component
+annotation org.springframework.stereotype.Repository
+annotation org.springframework.stereotype.Service
+class com.MiguelAngelSotelo.backendArgentinaPrograma.BackendArgentinaProgramaApplication
+class com.MiguelAngelSotelo.backendArgentinaPrograma.controller.EducacionController
+class com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ExperienciaLaboralController
+class com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PersonaController
+class com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ProyectosController
+class com.MiguelAngelSotelo.backendArgentinaPrograma.controller.SkillsController
+class com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController
+class com.MiguelAngelSotelo.backendArgentinaPrograma.dto.EducacionDto
+class com.MiguelAngelSotelo.backendArgentinaPrograma.dto.ExperienciaLaboralDto
+class com.MiguelAngelSotelo.backendArgentinaPrograma.dto.Mensaje
+class com.MiguelAngelSotelo.backendArgentinaPrograma.dto.PersonaDto
+class com.MiguelAngelSotelo.backendArgentinaPrograma.dto.ProyectosDto
+class com.MiguelAngelSotelo.backendArgentinaPrograma.dto.SkillsDto
+class com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Educacion
+class com.MiguelAngelSotelo.backendArgentinaPrograma.entity.ExperienciaLaboral
+class com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Persona
+class com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Proyectos
+class com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Skills
+class com.MiguelAngelSotelo.backendArgentinaPrograma.exception.UserNotFoundException
+class com.MiguelAngelSotelo.backendArgentinaPrograma.security.MainSecurity
+class com.MiguelAngelSotelo.backendArgentinaPrograma.security.dto.JwtDto
+class com.MiguelAngelSotelo.backendArgentinaPrograma.security.dto.NewUser
+class com.MiguelAngelSotelo.backendArgentinaPrograma.security.dto.UserLogin
+class com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.MainUser
+class com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.Role
+class com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.User
+class com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtEntryPoint
+class com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtProvider
+class com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtTokenFilter
+class com.MiguelAngelSotelo.backendArgentinaPrograma.security.service.RoleService
+class com.MiguelAngelSotelo.backendArgentinaPrograma.security.service.UserDetailsServiceImpl
+class com.MiguelAngelSotelo.backendArgentinaPrograma.security.service.UserService
+class com.MiguelAngelSotelo.backendArgentinaPrograma.service.EducacionService
+class com.MiguelAngelSotelo.backendArgentinaPrograma.service.ExperienciaLaboralService
+class com.MiguelAngelSotelo.backendArgentinaPrograma.service.PersonaService
+class com.MiguelAngelSotelo.backendArgentinaPrograma.service.ProyectosService
+class com.MiguelAngelSotelo.backendArgentinaPrograma.service.SkillsService
+class java.io.IOException
+class java.lang.RuntimeException
+class java.util.Arrays
+class java.util.Collection
+class java.util.Date
+class java.util.HashSet
+class java.util.List
+class java.util.Optional
+class java.util.Set
+class java.util.stream.Collectors
+class javax.persistence.GenerationType
+class javax.servlet.FilterChain
+class javax.servlet.ServletException
+class javax.servlet.http.HttpServletRequest
+class javax.servlet.http.HttpServletResponse
+class org.slf4j.Logger
+class org.slf4j.LoggerFactory
+class org.springframework.boot.SpringApplication
+class org.springframework.http.HttpStatus
+class org.springframework.http.ResponseEntity
+class org.springframework.security.authentication.AuthenticationManager
+class org.springframework.security.authentication.UsernamePasswordAuthenticationToken
+class org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
+class org.springframework.security.config.annotation.web.builders.HttpSecurity
+class org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
+class org.springframework.security.config.http.SessionCreationPolicy
+class org.springframework.security.core.Authentication
+class org.springframework.security.core.AuthenticationException
+class org.springframework.security.core.GrantedAuthority
+class org.springframework.security.core.authority.SimpleGrantedAuthority
+class org.springframework.security.core.context.SecurityContextHolder
+class org.springframework.security.core.userdetails.UsernameNotFoundException
+class org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
+class org.springframework.security.crypto.password.PasswordEncoder
+class org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
+class org.springframework.validation.BindingResult
+class org.springframework.web.cors.CorsConfiguration
+class org.springframework.web.cors.UrlBasedCorsConfigurationSource
+class org.springframework.web.filter.CorsFilter
+class org.springframework.web.filter.OncePerRequestFilter
+enum com.MiguelAngelSotelo.backendArgentinaPrograma.security.enums.RoleNombre
+interface com.MiguelAngelSotelo.backendArgentinaPrograma.repository.EducacionRepository
+interface com.MiguelAngelSotelo.backendArgentinaPrograma.repository.ExperienciaLaboralRepository
+interface com.MiguelAngelSotelo.backendArgentinaPrograma.repository.PersonaRepository
+interface com.MiguelAngelSotelo.backendArgentinaPrograma.repository.ProyectosRepository
+interface com.MiguelAngelSotelo.backendArgentinaPrograma.repository.SkillsRepository
+interface com.MiguelAngelSotelo.backendArgentinaPrograma.security.repository.RoleRepository
+interface com.MiguelAngelSotelo.backendArgentinaPrograma.security.repository.UserRepository
+interface java.io.Serializable
+interface org.springframework.data.jpa.repository.JpaRepository
+interface org.springframework.security.core.userdetails.UserDetails
+interface org.springframework.security.core.userdetails.UserDetailsService
+interface org.springframework.security.web.AuthenticationEntryPoint
+com.MiguelAngelSotelo.backendArgentinaPrograma.BackendArgentinaProgramaApplication ..> org.springframework.boot.autoconfigure.SpringBootApplication
+com.MiguelAngelSotelo.backendArgentinaPrograma.BackendArgentinaProgramaApplication ..> org.springframework.context.annotation.Bean
+com.MiguelAngelSotelo.backendArgentinaPrograma.BackendArgentinaProgramaApplication ..> java.util.Arrays
+com.MiguelAngelSotelo.backendArgentinaPrograma.BackendArgentinaProgramaApplication ..> org.springframework.boot.SpringApplication
+com.MiguelAngelSotelo.backendArgentinaPrograma.BackendArgentinaProgramaApplication ..> org.springframework.web.cors.CorsConfiguration
+com.MiguelAngelSotelo.backendArgentinaPrograma.BackendArgentinaProgramaApplication ..> org.springframework.web.cors.UrlBasedCorsConfigurationSource
+com.MiguelAngelSotelo.backendArgentinaPrograma.BackendArgentinaProgramaApplication ..> org.springframework.web.filter.CorsFilter
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.EducacionController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.CrossOrigin
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.EducacionController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.DeleteMapping
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.EducacionController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.GetMapping
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.EducacionController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PathVariable
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.EducacionController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PostMapping
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.EducacionController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PutMapping
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.EducacionController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.RequestBody
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.EducacionController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.RequestMapping
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.EducacionController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.RestController
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.EducacionController ..> org.springframework.beans.factory.annotation.Autowired
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.EducacionController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Educacion
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.EducacionController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.service.EducacionService
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.EducacionController ..> java.util.List
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.EducacionController ..> org.springframework.http.HttpStatus
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.EducacionController ..> org.springframework.http.ResponseEntity
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ExperienciaLaboralController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.CrossOrigin
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ExperienciaLaboralController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.DeleteMapping
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ExperienciaLaboralController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.GetMapping
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ExperienciaLaboralController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PathVariable
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ExperienciaLaboralController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PostMapping
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ExperienciaLaboralController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PutMapping
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ExperienciaLaboralController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.RequestBody
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ExperienciaLaboralController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.RequestMapping
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ExperienciaLaboralController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.RestController
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ExperienciaLaboralController ..> org.springframework.beans.factory.annotation.Autowired
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ExperienciaLaboralController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.entity.ExperienciaLaboral
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ExperienciaLaboralController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.service.ExperienciaLaboralService
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ExperienciaLaboralController ..> java.util.List
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ExperienciaLaboralController ..> org.springframework.http.HttpStatus
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ExperienciaLaboralController ..> org.springframework.http.ResponseEntity
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PersonaController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.CrossOrigin
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PersonaController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.DeleteMapping
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PersonaController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.GetMapping
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PersonaController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PathVariable
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PersonaController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PostMapping
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PersonaController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PutMapping
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PersonaController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.RequestBody
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PersonaController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.RequestMapping
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PersonaController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.RestController
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PersonaController ..> org.springframework.beans.factory.annotation.Autowired
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PersonaController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Persona
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PersonaController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.service.PersonaService
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PersonaController ..> java.util.List
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PersonaController ..> org.springframework.http.HttpStatus
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PersonaController ..> org.springframework.http.ResponseEntity
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ProyectosController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.CrossOrigin
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ProyectosController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.DeleteMapping
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ProyectosController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.GetMapping
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ProyectosController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PathVariable
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ProyectosController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PostMapping
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ProyectosController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PutMapping
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ProyectosController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.RequestBody
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ProyectosController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.RequestMapping
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ProyectosController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.RestController
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ProyectosController ..> org.springframework.beans.factory.annotation.Autowired
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ProyectosController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Proyectos
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ProyectosController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.service.ProyectosService
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ProyectosController ..> java.util.List
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ProyectosController ..> org.springframework.http.HttpStatus
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.ProyectosController ..> org.springframework.http.ResponseEntity
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.SkillsController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.CrossOrigin
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.SkillsController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.DeleteMapping
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.SkillsController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.GetMapping
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.SkillsController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PathVariable
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.SkillsController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PostMapping
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.SkillsController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PutMapping
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.SkillsController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.RequestBody
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.SkillsController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.RequestMapping
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.SkillsController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.RestController
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.SkillsController ..> org.springframework.beans.factory.annotation.Autowired
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.SkillsController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Skills
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.SkillsController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.service.SkillsService
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.SkillsController ..> java.util.List
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.SkillsController ..> org.springframework.http.HttpStatus
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.SkillsController ..> org.springframework.http.ResponseEntity
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.CrossOrigin
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.PostMapping
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.RequestBody
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.RequestMapping
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.controller.RestController
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController ..> javax.validation.Valid
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController ..> org.springframework.beans.factory.annotation.Autowired
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.dto.Mensaje
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.dto.JwtDto
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.dto.NewUser
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.dto.UserLogin
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.Role
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.User
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtProvider
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.service.RoleService
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.service.UserService
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController ..> java.util.HashSet
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController ..> java.util.Set
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController ..> org.springframework.http.HttpStatus
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController ..> org.springframework.http.ResponseEntity
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController ..> org.springframework.security.authentication.AuthenticationManager
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController ..> org.springframework.security.authentication.UsernamePasswordAuthenticationToken
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController ..> org.springframework.security.core.Authentication
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController ..> org.springframework.security.core.context.SecurityContextHolder
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController ..> org.springframework.security.crypto.password.PasswordEncoder
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController ..> org.springframework.validation.BindingResult
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.enums.RoleNombre
+com.MiguelAngelSotelo.backendArgentinaPrograma.controller.UserController ..> org.springframework.security.core.userdetails.UserDetails
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Educacion ..> com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Entity
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Educacion ..> com.MiguelAngelSotelo.backendArgentinaPrograma.entity.GeneratedValue
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Educacion ..> com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Id
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Educacion ..> java.lang.Override
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Educacion ..> lombok.Getter
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Educacion ..> lombok.Setter
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Educacion --|> java.io.Serializable
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.ExperienciaLaboral ..> java.lang.Override
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.ExperienciaLaboral ..> javax.persistence.Entity
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.ExperienciaLaboral ..> javax.persistence.GeneratedValue
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.ExperienciaLaboral ..> javax.persistence.Id
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.ExperienciaLaboral ..> lombok.Getter
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.ExperienciaLaboral ..> lombok.Setter
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.ExperienciaLaboral ..> javax.persistence.GenerationType
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.ExperienciaLaboral --|> java.io.Serializable
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Persona ..> com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Basic
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Persona ..> com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Entity
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Persona ..> com.MiguelAngelSotelo.backendArgentinaPrograma.entity.GeneratedValue
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Persona ..> com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Id
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Persona ..> java.lang.Override
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Persona ..> lombok.Getter
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Persona ..> lombok.Setter
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Persona --|> java.io.Serializable
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Proyectos ..> java.lang.Override
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Proyectos ..> javax.persistence.Entity
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Proyectos ..> javax.persistence.GeneratedValue
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Proyectos ..> javax.persistence.Id
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Proyectos ..> lombok.Getter
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Proyectos ..> lombok.Setter
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Proyectos ..> javax.persistence.GenerationType
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Proyectos --|> java.io.Serializable
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Skills ..> java.lang.Override
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Skills ..> javax.persistence.Entity
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Skills ..> javax.persistence.GeneratedValue
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Skills ..> javax.persistence.Id
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Skills ..> lombok.Getter
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Skills ..> lombok.Setter
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Skills ..> javax.persistence.GenerationType
+com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Skills --|> java.io.Serializable
+com.MiguelAngelSotelo.backendArgentinaPrograma.exception.UserNotFoundException --|> java.lang.RuntimeException
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.MainSecurity ..> java.lang.Override
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.MainSecurity ..> org.springframework.beans.factory.annotation.Autowired
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.MainSecurity ..> org.springframework.context.annotation.Bean
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.MainSecurity ..> org.springframework.context.annotation.Configuration
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.MainSecurity ..> org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.MainSecurity ..> org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.MainSecurity ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtEntryPoint
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.MainSecurity ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtTokenFilter
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.MainSecurity ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.service.UserDetailsServiceImpl
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.MainSecurity ..> org.springframework.security.authentication.AuthenticationManager
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.MainSecurity ..> org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.MainSecurity ..> org.springframework.security.config.annotation.web.builders.HttpSecurity
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.MainSecurity --|> org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.MainSecurity ..> org.springframework.security.config.http.SessionCreationPolicy
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.MainSecurity ..> org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.MainSecurity ..> org.springframework.security.crypto.password.PasswordEncoder
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.MainSecurity ..> org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.dto.JwtDto ..> java.util.Collection
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.dto.JwtDto ..> org.springframework.security.core.GrantedAuthority
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.dto.NewUser ..> javax.validation.constraints.Email
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.dto.NewUser ..> javax.validation.constraints.NotBlank
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.dto.NewUser ..> java.util.HashSet
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.dto.NewUser ..> java.util.Set
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.dto.UserLogin ..> javax.validation.constraints.NotBlank
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.MainUser ..> java.lang.Override
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.MainUser ..> java.util.Collection
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.MainUser ..> java.util.List
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.MainUser ..> java.util.stream.Collectors
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.MainUser ..> org.springframework.security.core.GrantedAuthority
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.MainUser ..> org.springframework.security.core.authority.SimpleGrantedAuthority
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.MainUser --|> org.springframework.security.core.userdetails.UserDetails
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.Role ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.Entity
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.Role ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.Enumerated
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.Role ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.GeneratedValue
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.Role ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.Id
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.Role ..> com.sun.istack.NotNull
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.Role ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.enums.RoleNombre
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.User ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.Column
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.User ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.Entity
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.User ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.GeneratedValue
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.User ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.Id
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.User ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.JoinColumn
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.User ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.JoinTable
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.User ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.ManyToMany
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.User ..> com.sun.istack.NotNull
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.User ..> java.util.HashSet
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.User ..> java.util.Set
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtEntryPoint ..> java.lang.Override
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtEntryPoint ..> org.springframework.stereotype.Component
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtEntryPoint ..> java.io.IOException
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtEntryPoint ..> javax.servlet.ServletException
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtEntryPoint ..> javax.servlet.http.HttpServletRequest
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtEntryPoint ..> javax.servlet.http.HttpServletResponse
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtEntryPoint ..> org.slf4j.Logger
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtEntryPoint ..> org.slf4j.LoggerFactory
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtEntryPoint ..> org.springframework.security.core.AuthenticationException
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtEntryPoint --|> org.springframework.security.web.AuthenticationEntryPoint
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtProvider ..> org.springframework.beans.factory.annotation.Value
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtProvider ..> org.springframework.stereotype.Component
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtProvider ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.MainUser
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtProvider ..> java.util.Date
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtProvider ..> java.util.List
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtProvider ..> java.util.stream.Collectors
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtProvider ..> org.slf4j.Logger
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtProvider ..> org.slf4j.LoggerFactory
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtProvider ..> org.springframework.security.core.Authentication
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtProvider ..> org.springframework.security.core.GrantedAuthority
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtTokenFilter ..> java.lang.Override
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtTokenFilter ..> org.springframework.beans.factory.annotation.Autowired
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtTokenFilter ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.service.UserDetailsServiceImpl
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtTokenFilter ..> java.io.IOException
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtTokenFilter ..> javax.servlet.FilterChain
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtTokenFilter ..> javax.servlet.ServletException
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtTokenFilter ..> javax.servlet.http.HttpServletRequest
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtTokenFilter ..> javax.servlet.http.HttpServletResponse
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtTokenFilter ..> org.slf4j.Logger
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtTokenFilter ..> org.slf4j.LoggerFactory
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtTokenFilter ..> org.springframework.security.authentication.UsernamePasswordAuthenticationToken
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtTokenFilter ..> org.springframework.security.core.context.SecurityContextHolder
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtTokenFilter --|> org.springframework.web.filter.OncePerRequestFilter
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.jwt.JwtTokenFilter ..> org.springframework.security.core.userdetails.UserDetails
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.service.RoleService ..> javax.transaction.Transactional
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.service.RoleService ..> org.springframework.beans.factory.annotation.Autowired
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.service.RoleService ..> org.springframework.stereotype.Service
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.service.RoleService ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.Role
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.service.RoleService ..> java.util.Optional
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.service.RoleService ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.enums.RoleNombre
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.service.RoleService ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.repository.RoleRepository
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.service.UserDetailsServiceImpl ..> java.lang.Override
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.service.UserDetailsServiceImpl ..> org.springframework.beans.factory.annotation.Autowired
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.service.UserDetailsServiceImpl ..> org.springframework.stereotype.Service
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.service.UserDetailsServiceImpl ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.MainUser
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.service.UserDetailsServiceImpl ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.User
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.service.UserDetailsServiceImpl ..> org.springframework.security.core.userdetails.UsernameNotFoundException
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.service.UserDetailsServiceImpl ..> org.springframework.security.core.userdetails.UserDetails
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.service.UserDetailsServiceImpl --|> org.springframework.security.core.userdetails.UserDetailsService
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.service.UserService ..> javax.transaction.Transactional
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.service.UserService ..> org.springframework.beans.factory.annotation.Autowired
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.service.UserService ..> org.springframework.stereotype.Service
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.service.UserService ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.User
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.service.UserService ..> java.util.Optional
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.service.UserService ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.repository.UserRepository
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.EducacionService ..> javax.transaction.Transactional
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.EducacionService ..> org.springframework.beans.factory.annotation.Autowired
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.EducacionService ..> org.springframework.stereotype.Service
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.EducacionService ..> com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Educacion
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.EducacionService ..> com.MiguelAngelSotelo.backendArgentinaPrograma.exception.UserNotFoundException
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.EducacionService ..> java.util.List
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.EducacionService ..> com.MiguelAngelSotelo.backendArgentinaPrograma.repository.EducacionRepository
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.ExperienciaLaboralService ..> javax.transaction.Transactional
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.ExperienciaLaboralService ..> org.springframework.beans.factory.annotation.Autowired
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.ExperienciaLaboralService ..> org.springframework.stereotype.Service
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.ExperienciaLaboralService ..> com.MiguelAngelSotelo.backendArgentinaPrograma.entity.ExperienciaLaboral
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.ExperienciaLaboralService ..> com.MiguelAngelSotelo.backendArgentinaPrograma.exception.UserNotFoundException
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.ExperienciaLaboralService ..> java.util.List
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.ExperienciaLaboralService ..> com.MiguelAngelSotelo.backendArgentinaPrograma.repository.ExperienciaLaboralRepository
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.PersonaService ..> javax.transaction.Transactional
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.PersonaService ..> org.springframework.beans.factory.annotation.Autowired
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.PersonaService ..> org.springframework.stereotype.Service
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.PersonaService ..> com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Persona
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.PersonaService ..> com.MiguelAngelSotelo.backendArgentinaPrograma.exception.UserNotFoundException
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.PersonaService ..> java.util.List
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.PersonaService ..> com.MiguelAngelSotelo.backendArgentinaPrograma.repository.PersonaRepository
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.ProyectosService ..> javax.transaction.Transactional
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.ProyectosService ..> org.springframework.beans.factory.annotation.Autowired
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.ProyectosService ..> org.springframework.stereotype.Service
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.ProyectosService ..> com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Proyectos
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.ProyectosService ..> com.MiguelAngelSotelo.backendArgentinaPrograma.exception.UserNotFoundException
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.ProyectosService ..> java.util.List
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.ProyectosService ..> com.MiguelAngelSotelo.backendArgentinaPrograma.repository.ProyectosRepository
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.SkillsService ..> javax.transaction.Transactional
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.SkillsService ..> org.springframework.beans.factory.annotation.Autowired
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.SkillsService ..> org.springframework.stereotype.Service
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.SkillsService ..> com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Skills
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.SkillsService ..> com.MiguelAngelSotelo.backendArgentinaPrograma.exception.UserNotFoundException
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.SkillsService ..> java.util.List
+com.MiguelAngelSotelo.backendArgentinaPrograma.service.SkillsService ..> com.MiguelAngelSotelo.backendArgentinaPrograma.repository.SkillsRepository
+com.MiguelAngelSotelo.backendArgentinaPrograma.repository.EducacionRepository ..> org.springframework.stereotype.Repository
+com.MiguelAngelSotelo.backendArgentinaPrograma.repository.EducacionRepository ..> com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Educacion
+com.MiguelAngelSotelo.backendArgentinaPrograma.repository.EducacionRepository ..> java.util.Optional
+com.MiguelAngelSotelo.backendArgentinaPrograma.repository.EducacionRepository --|> org.springframework.data.jpa.repository.JpaRepository
+com.MiguelAngelSotelo.backendArgentinaPrograma.repository.ExperienciaLaboralRepository ..> org.springframework.stereotype.Repository
+com.MiguelAngelSotelo.backendArgentinaPrograma.repository.ExperienciaLaboralRepository ..> com.MiguelAngelSotelo.backendArgentinaPrograma.entity.ExperienciaLaboral
+com.MiguelAngelSotelo.backendArgentinaPrograma.repository.ExperienciaLaboralRepository ..> java.util.Optional
+com.MiguelAngelSotelo.backendArgentinaPrograma.repository.ExperienciaLaboralRepository --|> org.springframework.data.jpa.repository.JpaRepository
+com.MiguelAngelSotelo.backendArgentinaPrograma.repository.PersonaRepository ..> org.springframework.stereotype.Repository
+com.MiguelAngelSotelo.backendArgentinaPrograma.repository.PersonaRepository ..> com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Persona
+com.MiguelAngelSotelo.backendArgentinaPrograma.repository.PersonaRepository ..> java.util.Optional
+com.MiguelAngelSotelo.backendArgentinaPrograma.repository.PersonaRepository --|> org.springframework.data.jpa.repository.JpaRepository
+com.MiguelAngelSotelo.backendArgentinaPrograma.repository.ProyectosRepository ..> org.springframework.stereotype.Repository
+com.MiguelAngelSotelo.backendArgentinaPrograma.repository.ProyectosRepository ..> com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Proyectos
+com.MiguelAngelSotelo.backendArgentinaPrograma.repository.ProyectosRepository ..> java.util.Optional
+com.MiguelAngelSotelo.backendArgentinaPrograma.repository.ProyectosRepository --|> org.springframework.data.jpa.repository.JpaRepository
+com.MiguelAngelSotelo.backendArgentinaPrograma.repository.SkillsRepository ..> org.springframework.stereotype.Repository
+com.MiguelAngelSotelo.backendArgentinaPrograma.repository.SkillsRepository ..> com.MiguelAngelSotelo.backendArgentinaPrograma.entity.Skills
+com.MiguelAngelSotelo.backendArgentinaPrograma.repository.SkillsRepository ..> java.util.Optional
+com.MiguelAngelSotelo.backendArgentinaPrograma.repository.SkillsRepository --|> org.springframework.data.jpa.repository.JpaRepository
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.repository.RoleRepository ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.Role
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.repository.RoleRepository ..> java.util.Optional
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.repository.RoleRepository ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.enums.RoleNombre
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.repository.RoleRepository --|> org.springframework.data.jpa.repository.JpaRepository
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.repository.UserRepository ..> com.MiguelAngelSotelo.backendArgentinaPrograma.security.entity.User
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.repository.UserRepository ..> java.util.Optional
+com.MiguelAngelSotelo.backendArgentinaPrograma.security.repository.UserRepository --|> org.springframework.data.jpa.repository.JpaRepository
+@enduml
